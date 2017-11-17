@@ -99,3 +99,9 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+.vscode
+*.swp
+logfile
+state_file
+shadowserver-reports/*
