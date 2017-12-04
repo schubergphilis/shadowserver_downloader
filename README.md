@@ -5,6 +5,7 @@ Script to download shadowserver reports as CSV files.
 The script can keep state across runs and download only the new reports.
 
 ```sh
+$ ./shadowserver.py -h
 usage: shadowserver.py [-h] -u USER -p PASSWORD [-s SERVER] [-k]
                        [-r READ_FILE] [-l LOG_FILE] [-D] [-d DOWNLOAD_FOLDER]
 
