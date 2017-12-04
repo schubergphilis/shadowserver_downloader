@@ -16,7 +16,7 @@ parser = argparse.ArgumentParser(description='Download all reports from shadowse
 parser.add_argument('-u','--user', help='Username', required=True)
 parser.add_argument('-p','--password', help='Password', required=True)
 parser.add_argument('-s','--server', help='Full URL for the reports page', required=False, default="https://dl.shadowserver.org/reports/index.php")
-parser.add_argument('-k','--keep_state', help='Keep state (in "' + state_file + '"', required=False, action="store_true", default=False)
+parser.add_argument('-k','--keep_state', help='Keep state (in "' + state_file + '")', required=False, action="store_true", default=False)
 parser.add_argument('-r','--read_file', help='Read this file instead of making a web request (for DEBUG)', required=False)
 parser.add_argument('-l','--log_file', help='Log to file instead of STDERR', required=False)
 parser.add_argument('-D','--debug', help='Debug', action="store_true", required=False)
