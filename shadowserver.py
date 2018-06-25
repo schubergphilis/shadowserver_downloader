@@ -8,7 +8,7 @@ from logging.handlers import RotatingFileHandler
 import sys
 import os
 
-match_downloads = '(https:\/\/dl.shadowserver.org\/[^"]+)'
+match_downloads = b'(https:\/\/dl.shadowserver.org\/[^"]+)'
 state_file = "./state_file"
 script_name = "shadowserver-to-splunk"
 default_download_folder="./shadowserver-reports"
@@ -76,7 +76,7 @@ def download_element(session, url, download_folder):
             filename = re.findall("filename=(.+)", content_disposition)[0]
 
             dest_file = download_folder + "/" + filename
-            with open(dest_file, 'w') as outputfile:
+            with open(dest_file, 'wb') as outputfile:
                 outputfile.write(response.content)
                 logging.debug(url + " saved to " + dest_file)
 
@@ -117,7 +117,7 @@ if not os.path.exists(args.download_folder):
 
 # Extract all the URLs for reports and proceed to download all the ones we don't have already
 for download_me in re.finditer(match_downloads, html_content, re.MULTILINE):
-    url = download_me.group(1)
+    url = download_me.group(1).decode()
     if url not in already_processed:
         succeeded = download_element(session,url,args.download_folder)
         if succeeded:
